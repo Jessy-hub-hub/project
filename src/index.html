@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL Test</title>
+</head>
+<body>
+    <h1>GraphQL Test</h1>
+    <button onclick="fetchData()">Fetch Data</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function fetchData() {
+            const query = `
+                query {
+                    hello
+                    add(a: 5, b: 10)
+                }
+            `;
+
+            const response = await fetch('C:\Users\jessy\React.js App\project\src\index.html', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Basic styling for demonstration */
+
+header {
+  background: #fff;
+  padding: 10px 10px 0 10px; /* Remove bottom padding to avoid a margin under the header */
+  border-bottom: 1px solid #ddd;
+  z-index: 1001;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0; /* Ensure no margin under the nav */
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+button[data-testid="cart-btn"] {
+  border: 1px solid red; /* Add this for debugging */
+}
+
+
+button i.fas.fa-shopping-cart {
+  font-size: 24px;
+  color: #222044;
+  padding: 5px;
+  
+}
+
+button span {
+  margin-left: 5px;
+}
+
+button span {
+  margin-left: 5px; /* Space between icon and text */
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 250px;
+  height: 50%;
+  background: #fff;
+  padding: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+body.cart-overlay-open {
+  overflow: hidden;
+  position: relative;
+}
+
+body.cart-overlay-open::before {
+  content: "";
+  position: fixed;
+  top: 73px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 49px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  pointer-events: none;
+}
+/* Style for the "Place Order" button */
+.cart-overlay button[data-testid="place-order-btn"] {
+  background-color: #28a745; /* Green background */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 5px; /* Optional: rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Adjust font size */
+  position: absolute; /* Position button */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  width: calc(100% - 40px); /* Full width minus padding */
+}
+
+.cart-overlay button[data-testid="place-order-btn"]:disabled {
+  background-color: #c6e0c6; /* Lighter green for disabled state */
+  cursor: not-allowed; /* Not allowed cursor for disabled state */
+}
